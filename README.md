@@ -2,7 +2,8 @@
 
 A sleek, modern chat interface built with Next.js 14, TypeScript, and Shadcn UI components. Features a beautiful gradient design with sophisticated animations and interactions.
 
-![Chat Interface Screenshot]
+<img width="1106" alt="image" src="https://github.com/user-attachments/assets/b805ec0c-67e3-4cb4-97a7-84fab17db8e9" />
+
 
 ## Features
 
