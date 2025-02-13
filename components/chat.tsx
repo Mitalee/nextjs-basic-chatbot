@@ -10,11 +10,16 @@ import { Send, Bot, User } from "lucide-react"
 interface Message {
   role: 'user' | 'assistant'
   content: string
+  timestamp: Date
 }
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hello! How can I help you today?' }
+    { 
+        role: 'assistant', 
+        content: 'Hello! How can I help you today?',
+        timestamp: new Date()
+     }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -42,7 +47,11 @@ export default function Chat() {
     e.preventDefault()
     if (!input.trim()) return
 
-    const userMessage = { role: 'user' as const, content: input.trim() }
+    const userMessage = { 
+        role: 'user' as const, 
+        content: input.trim(),
+        timestamp: new Date()
+     }
     setMessages(prev => [...prev, userMessage])
     setInput('')
     setIsLoading(true)
@@ -50,7 +59,8 @@ export default function Chat() {
     setTimeout(() => {
       const aiMessage = { 
         role: 'assistant' as const, 
-        content: 'This is a simulated response. Replace this with your actual AI integration.'
+        content: 'This is a simulated response. Replace this with your actual AI integration.',
+        timestamp: new Date()
       }
       setMessages(prev => [...prev, aiMessage])
       setIsLoading(false)
@@ -100,6 +110,16 @@ export default function Chat() {
                       }`}
                     >
                       {message.content}
+                      <div className={`text-xs mt-1 ${
+                            message.role === 'user' 
+                            ? 'text-white/70' 
+                            : 'text-slate-400'
+                        }`}>
+                            {message.timestamp.toLocaleTimeString([], { 
+                            hour: '2-digit', 
+                            minute: '2-digit'
+                            })}
+                    </div>
                     </div>
                   </div>
                 </div>
