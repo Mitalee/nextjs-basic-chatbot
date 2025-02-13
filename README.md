@@ -30,7 +30,7 @@ A sleek, modern chat interface built with Next.js 14, TypeScript, and Shadcn UI 
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Mitalee/nextjs-basic-chatbot
 ```
 
 2. Install dependencies:
